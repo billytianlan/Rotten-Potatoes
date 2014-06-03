@@ -1,0 +1,3 @@
+Admin::UsersController < ActionController
+
+end
