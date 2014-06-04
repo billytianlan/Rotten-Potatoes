@@ -17,6 +17,12 @@ class Admin::UsersController < ApplicationController
     end
   end
 
+  def destroy 
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to admin_users_path
+  end
+
 
   # def current_user
   #   @current_user ||= User.find(session[:user_id]) if session[:user_id]

@@ -5,12 +5,14 @@
     <th>Firstname</th>
     <th>Lastname</th> 
     <th>Status</th> 
+    <th>Delete</th>
   </tr>
   <% @users.each do |user| %>
   <tr>
     <td><%= user.firstname %></td>
     <td><%= user.lastname %></td> 
     <td><% if user.admin == nil %> Not an Admin <% else %> Admin <% end %></td>
+    <td>(<%= link_to "Delete", admin_user_path(user), method: :delete, confirm: "You sure?" %>)
   </tr>
   <% end %>
   <%= paginate @users %>

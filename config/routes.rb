@@ -8,7 +8,7 @@ RottenPotatoes::Application.routes.draw do
   root to: 'movies#index'
 
   resources :movies do
-    resources :reviews, only: [:new, :create]
+    resources :reviews, only: [:new, :create,]
     collection do
       get '/search' => 'movies#search'
     end
