@@ -13,4 +13,5 @@
     <td><% if user.admin == nil %> Not an Admin <% else %> Admin <% end %></td>
   </tr>
   <% end %>
+  <%= paginate @users %>
 </table>
