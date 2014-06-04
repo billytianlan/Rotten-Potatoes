@@ -1,6 +1,7 @@
 class MoviesController < ApplicationController
+
   def index
-    @movies = Movie.all
+      @movies = Movie.all
   end
 
   def show
@@ -39,6 +40,21 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     @movie.destroy
     redirect_to movie_path
+  end
+
+  def search
+
+    if params[:runtime].to_i == 1
+      runtime_in_minutes = "AND runtime_in_minutes < 90"
+    elsif params[:runtime].to_i == 2
+      runtime_in_minutes = "AND runtime_in_minutes >= 90 AND runtime_in_minutes <= 120"
+    elsif params[:runtime].to_i == 3
+      runtime_in_minutes = "AND runtime_in_minutes > 120"
+    else
+      @movies = Movie.all
+    end
+
+    @movies = Movie.where("title like ? AND director like ? #{runtime_in_minutes}", "%#{params[:title]}%", "%#{params[:director]}")
   end
 
   protected 
