@@ -1,3 +1,16 @@
-<% @users.each do |user| %>
-  <h4>User: <%= user.full_name %> | <% if user.admin == nil %> Not an Admin <% else %> Admin <% end %></h4>
-<% end %>
+
+
+<table border="1" style="width:300px">
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th> 
+    <th>Status</th> 
+  </tr>
+  <% @users.each do |user| %>
+  <tr>
+    <td><%= user.firstname %></td>
+    <td><%= user.lastname %></td> 
+    <td><% if user.admin == nil %> Not an Admin <% else %> Admin <% end %></td>
+  </tr>
+  <% end %>
+</table>
