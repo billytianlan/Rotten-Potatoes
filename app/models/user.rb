@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 
   has_many :reviews
 
+  accepts_nested_attributes_for :reviews
+
   def full_name
     "#{firstname} #{lastname}"
   end
