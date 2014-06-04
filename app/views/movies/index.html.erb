@@ -1,4 +1,14 @@
 <h1>Rotten Potatoes</h1>
+
+<%= form_tag search_movies_path, :method => :get do %>
+  <%= label_tag 'Title' %>
+  <%= text_field_tag :title %>
+  <%= label_tag 'Director' %>
+  <%= text_field_tag :director %>
+  <%= submit_tag("Search") %>
+  <%= select_tag(:runtime, options_for_select([["Under 90 Minutes", 1], ["Between 90 and 120 Minutes", 2], ["Over 120 Mintues", 3]]), { inlcude_blank: true} ) %>
+  <% end %>
+<hr>
 <%= link_to "Submit a Movie!", new_movie_path %>
 <hr>
 <% @movies.each do |movie| %>
