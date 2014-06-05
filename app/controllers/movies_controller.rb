@@ -54,7 +54,7 @@ class MoviesController < ApplicationController
       @movies = Movie.all
     end
 
-    @movies = Movie.search(params[:title], params[:director], runtime_in_minutes)
+    @movies = Movie.search(params[:movie], runtime_in_minutes)
   end
 
   protected 
