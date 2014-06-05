@@ -3,8 +3,8 @@
 <%= form_tag search_movies_path, :method => :get do %>
   <%= label_tag 'Search' %>
   <%= text_field_tag :movie %>
-  <%= submit_tag("Search") %>
-  <%= select_tag(:runtime, options_for_select([["Under 90 Minutes", 1], ["Between 90 and 120 Minutes", 2], ["Over 120 Mintues", 3]]), { inlcude_blank: true }) %>
+  <%= select_tag(:runtime, options_for_select([["Under 90 Minutes", 1], ["Between 90 and 120 Minutes", 2], ["Over 120 Mintues", 3]]), { include_blank: true }) %>
+  <%= submit_tag "Search" %>
   <% end %>
 <hr>
 <%= link_to "Submit a Movie!", new_movie_path %>
