@@ -14,7 +14,7 @@ RottenPotatoes::Application.routes.draw do
     end
   end
   resources :users, only: [:new, :create]
-  resources :sessions, only: [:new, :create, :destroy]
+  resource :session, :controller => :sessions, only: [:new, :create, :destroy]
 
   namespace :admin do
     resources :users
