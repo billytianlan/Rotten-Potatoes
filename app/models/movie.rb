@@ -16,6 +16,8 @@ class Movie < ActiveRecord::Base
     end
   end
 
+  scope :search, -> title, director, runtime_in_minutes { where "title like ? AND director like ? #{runtime_in_minutes}", "%#{title}", "%#{director}" }
+
   protected
 
   def release_date_is_in_the_future

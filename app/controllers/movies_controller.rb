@@ -54,7 +54,7 @@ class MoviesController < ApplicationController
       @movies = Movie.all
     end
 
-    @movies = Movie.where("title like ? AND director like ? #{runtime_in_minutes}", "%#{params[:title]}%", "%#{params[:director]}")
+    @movies = Movie.search(params[:title], params[:director], runtime_in_minutes)
   end
 
   protected 
